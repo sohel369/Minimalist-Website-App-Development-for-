@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { verifyOtpCode, setupRecaptcha, sendOtpToPhone, getUserProfile } from "@/lib/firebase";
 import { RecaptchaVerifier } from "firebase/auth";
 
+
 function OTPFormContent() {
     const router = useRouter();
     const searchParams = useSearchParams();

@@ -12,6 +12,9 @@ interface Country {
     dialCode: string;
 }
 
+
+
+
 const countries: Country[] = [
     { code: "BD", name: "Bangladesh", flag: "🇧🇩", dialCode: "+880" },
     { code: "AE", name: "UAE", flag: "🇦🇪", dialCode: "+971" },
