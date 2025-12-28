@@ -52,6 +52,7 @@ export default function Home() {
               description="Schedule a new maintenance visit or repair with our expert technicians."
               icon={CalendarPlus}
               actionText="Book Now"
+              href="/book"
               className="md:col-span-1"
             />
             <ActionCard
@@ -59,12 +60,14 @@ export default function Home() {
               description="Check the real-time status of your ongoing service requests."
               icon={Search}
               actionText="View Status"
+              href="/requests"
             />
             <ActionCard
               title="Support & Help"
               description="Need assistance? Contact our support team for quick resolutions."
               icon={HelpCircle}
               actionText="Get Help"
+              href="/support"
             />
           </motion.div>
 
