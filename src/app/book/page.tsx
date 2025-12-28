@@ -108,34 +108,43 @@ export default function BookServicePage() {
     };
 
     const handleSubmit = async () => {
-        if (!user) return;
+        if (!user) {
+            alert("You must be logged in to book a service.");
+            return;
+        }
 
         setIsSubmitting(true);
 
         try {
             const serviceData = services.find(s => s.id === selectedService);
 
-            const docRef = await addDoc(collection(db, "requests"), {
+            // Sanitize data to ensure no undefined values are sent
+            const bookingData = {
                 userId: user.uid,
-                userPhone: user.phoneNumber,
-                userName: user.displayName || "User",
-                service: serviceData?.name,
-                serviceType: selectedService,
-                scheduledDate: selectedDate,
-                scheduledTime: selectedTime,
-                address: address,
-                addressType: addressType,
-                description: description,
+                userPhone: user.phoneNumber || "Not provided",
+                userName: user.displayName || "Valued Customer",
+                service: serviceData?.name || "General Service",
+                serviceType: selectedService || "general",
+                scheduledDate: selectedDate || new Date().toISOString(),
+                scheduledTime: selectedTime || "Anytime",
+                address: address || "No address provided",
+                addressType: addressType || "home",
+                description: description || "",
                 status: "pending",
                 createdAt: serverTimestamp(),
                 updatedAt: serverTimestamp(),
-            });
+            };
+
+            console.log("Submitting booking data:", bookingData);
+
+            const docRef = await addDoc(collection(db, "requests"), bookingData);
 
             setBookingId(docRef.id.substring(0, 8).toUpperCase());
             setIsSuccess(true);
-        } catch (error) {
+        } catch (error: any) {
             console.error("Error creating booking:", error);
-            alert("Failed to create booking. Please try again.");
+            // Show more specific error to the user/developer
+            alert(`Failed to create booking: ${error.message || "Unknown error"}. Check console for details.`);
         } finally {
             setIsSubmitting(false);
         }
