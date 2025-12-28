@@ -255,8 +255,8 @@ function RequestCard({ request, index }: { request: ServiceRequest; index: numbe
                             )}
                         </div>
 
-                        <div>
-                            <h3 className="font-semibold text-neutral-900 text-lg leading-tight">
+                        <div className="min-w-0 flex-1">
+                            <h3 className="font-semibold text-neutral-900 text-base sm:text-lg leading-tight truncate">
                                 {request.service}
                             </h3>
                             <p className="text-sm text-neutral-500 mt-0.5">{request.id}</p>
@@ -276,7 +276,7 @@ function RequestCard({ request, index }: { request: ServiceRequest; index: numbe
                 </div>
 
                 {/* Quick Info */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mb-4">
                     <div className="flex items-center gap-2 text-sm text-neutral-600">
                         <Calendar className="h-4 w-4 text-neutral-400" />
                         <span>{request.scheduledDate}</span>
@@ -458,14 +458,14 @@ function StatsCards() {
     ];
 
     return (
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-8">
             {stats.map((stat, index) => (
                 <motion.div
                     key={stat.label}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white rounded-2xl border border-neutral-200 p-5 shadow-sm"
+                    className="bg-white rounded-xl sm:rounded-2xl border border-neutral-200 p-4 sm:p-5 shadow-sm"
                 >
                     <div className="flex items-center justify-between mb-3">
                         <div
@@ -477,9 +477,9 @@ function StatsCards() {
                             <stat.icon className="h-5 w-5" />
                         </div>
                     </div>
-                    <p className="text-2xl font-bold text-neutral-900 mb-1">{stat.value}</p>
-                    <p className="text-xs text-neutral-500">{stat.change}</p>
-                    <p className="text-sm font-medium text-neutral-600 mt-1">{stat.label}</p>
+                    <p className="text-xl sm:text-2xl font-bold text-neutral-900 mb-1">{stat.value}</p>
+                    <p className="text-[10px] sm:text-xs text-neutral-500">{stat.change}</p>
+                    <p className="text-xs sm:text-sm font-medium text-neutral-600 mt-1">{stat.label}</p>
                 </motion.div>
             ))}
         </div>
@@ -525,7 +525,7 @@ export default function RequestsPage() {
         <div className="min-h-screen bg-neutral-50/50 flex flex-col font-sans">
             <Navbar />
 
-            <main className="flex-grow pt-24 pb-12">
+            <main className="flex-grow pt-20 sm:pt-24 pb-8 sm:pb-12">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Page Header */}
                     <motion.div
@@ -535,10 +535,10 @@ export default function RequestsPage() {
                     >
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                             <div>
-                                <h1 className="text-3xl font-bold text-neutral-900 mb-2">
+                                <h1 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-1 sm:mb-2">
                                     My Requests
                                 </h1>
-                                <p className="text-neutral-600">
+                                <p className="text-sm sm:text-base text-neutral-600">
                                     Track and manage all your service requests in one place.
                                 </p>
                             </div>

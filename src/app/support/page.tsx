@@ -207,7 +207,7 @@ function FAQAccordion({
                 >
                     <button
                         onClick={() => onToggle(item.id)}
-                        className="w-full px-6 py-4 flex items-center justify-between text-left"
+                        className="w-full px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between text-left"
                     >
                         <div className="flex items-center gap-3">
                             <div
@@ -220,7 +220,7 @@ function FAQAccordion({
                             >
                                 <HelpCircle className="h-4 w-4" />
                             </div>
-                            <span className="font-medium text-neutral-900">{item.question}</span>
+                            <span className="font-medium text-neutral-900 text-sm sm:text-base">{item.question}</span>
                         </div>
                         <ChevronDown
                             className={cn(
@@ -238,11 +238,11 @@ function FAQAccordion({
                                 exit={{ opacity: 0, height: 0 }}
                                 transition={{ duration: 0.2 }}
                             >
-                                <div className="px-6 pb-5 pl-17">
-                                    <div className="ml-11 text-neutral-600 leading-relaxed">
+                                <div className="px-4 sm:px-6 pb-4 sm:pb-5 pl-12 sm:pl-17">
+                                    <div className="ml-0 sm:ml-11 text-neutral-600 leading-relaxed text-sm sm:text-base">
                                         {item.answer}
                                     </div>
-                                    <div className="ml-11 mt-4 flex items-center gap-4">
+                                    <div className="ml-0 sm:ml-11 mt-4 flex items-center gap-4">
                                         <button className="text-sm text-neutral-500 hover:text-primary transition-colors flex items-center gap-1">
                                             <CheckCircle2 className="h-4 w-4" />
                                             Helpful
@@ -324,7 +324,7 @@ function TicketCard({ ticket }: { ticket: SupportTicket }) {
     const StatusIcon = statusConfig[ticket.status].icon;
 
     return (
-        <div className="flex items-center justify-between p-4 bg-white rounded-xl border border-neutral-200 hover:border-neutral-300 hover:shadow-sm transition-all">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 bg-white rounded-xl border border-neutral-200 hover:border-neutral-300 hover:shadow-sm transition-all">
             <div className="flex items-center gap-4">
                 <div
                     className={cn(
@@ -341,7 +341,7 @@ function TicketCard({ ticket }: { ticket: SupportTicket }) {
                     </p>
                 </div>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 mt-2 sm:mt-0">
                 <span
                     className={cn(
                         "px-2.5 py-1 rounded-full text-xs font-medium border",
@@ -472,8 +472,7 @@ export default function SupportPage() {
     return (
         <div className="min-h-screen bg-neutral-50/50 flex flex-col font-sans">
             <Navbar />
-
-            <main className="flex-grow pt-24 pb-16">
+            <main className="flex-grow pt-20 sm:pt-24 pb-12 sm:pb-16">
                 {/* Hero Section */}
                 <div className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-emerald-50/50 to-teal-50/30 py-16 mb-12">
                     <div className="absolute inset-0 overflow-hidden">
@@ -491,10 +490,10 @@ export default function SupportPage() {
                                 <Headphones className="h-4 w-4" />
                                 We're here to help
                             </div>
-                            <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+                            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-neutral-900 mb-3 sm:mb-4">
                                 How can we help you?
                             </h1>
-                            <p className="text-lg text-neutral-600 mb-8">
+                            <p className="text-base sm:text-lg text-neutral-600 mb-6 sm:mb-8 px-2">
                                 Find answers to common questions or get in touch with our support
                                 team.
                             </p>
