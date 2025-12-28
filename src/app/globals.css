@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+    
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+:root {
+  /* 1. Primary Background: Soft off-white */
+  --background: #FAFAFA; 
+  --foreground: #111827; 
+
+  /* 2. Surface / Card Background */
+  --card: #FFFFFF;
+  --card-foreground: #111827;
+  
+  --popover: #FFFFFF;
+  --popover-foreground: #111827;
+
+  /* 5. Primary Action Color (CTA): Soft Emerald */
+  --primary: #10B981; 
+  --primary-foreground: #FFFFFF;
+
+  /* 4. Secondary Text for muted elements */
+  --secondary: #ECFDF5; /* Mint Mist for light backgrounds */
+  --secondary-foreground: #065F46; /* Deep Emerald for text on secondary */
+
+  --muted: #F3F4F6;
+  --muted-foreground: #6B7280;
+
+  --accent: #ECFDF5;
+  --accent-foreground: #064E3B;
+
+  /* 8. Error Color */
+  --destructive: #F43F5E;
+  --destructive-foreground: #FFFFFF;
+
+  /* 6. Border / Divider Color */
+  --border: #F3F4F6; /* Extremely subtle */
+  --input: #E5E7EB;
+  
+  /* 9. Accent / Highlight */
+  --ring: #10B981;
+
+  --radius: 1rem; /* 16px */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom utilities */
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}

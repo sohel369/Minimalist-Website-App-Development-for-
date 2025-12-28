@@ -1,0 +1,3 @@
+@echo off
+echo Starting Next.js dev server (bypassing npm path issues)...
+node "node_modules\next\dist\bin\next" dev
