@@ -10,8 +10,27 @@ import { ActionCard } from "@/components/home/ActionCard";
 import { RecentActivity } from "@/components/home/RecentActivity";
 import { TrustSection } from "@/components/home/TrustSection";
 import { ServiceHighlights } from "@/components/home/ServiceHighlights";
+import { useAuth } from "@/context/AuthContext";
+import WelcomePage from "./welcome/page";
 
 export default function Home() {
+  const { user, loading } = useAuth();
+
+  // Show loading spinner while checking auth
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="h-8 w-8 rounded-full border-2 border-emerald-600 border-t-transparent animate-spin" />
+      </div>
+    );
+  }
+
+  // If not logged in, show Welcome/Intro page
+  if (!user) {
+    return <WelcomePage />;
+  }
+
+  // Logged in - show Dashboard
   return (
     <div className="min-h-screen bg-neutral-50/50 flex flex-col font-sans">
       <Navbar />
