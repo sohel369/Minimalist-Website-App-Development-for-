@@ -32,13 +32,17 @@ class _OtpScreenState extends State<OtpScreen> {
       final success = await Provider.of<AuthProvider>(context, listen: false)
           .verifyOTP(otp);
       if (success) {
-        // Track successful login
-        await FirebaseAnalytics.instance.logEvent(
-          name: 'login_success',
-          parameters: {
-            'method': 'phone_otp',
-          },
-        );
+        // Track successful login (wrapped in try-catch for platform safety)
+        try {
+          await FirebaseAnalytics.instance.logEvent(
+            name: 'login_success',
+            parameters: {
+              'method': 'phone_otp',
+            },
+          );
+        } catch (e) {
+          debugPrint('Analytics error: $e');
+        }
         if (mounted) context.go('/home');
       } else {
         if (mounted) {
