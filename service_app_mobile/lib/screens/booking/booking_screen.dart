@@ -183,12 +183,20 @@ class _BookingScreenState extends State<BookingScreen> {
                 ).animate().scale(duration: 500.ms, curve: Curves.easeOutBack),
                 const SizedBox(height: 24),
                 Text(
-                  "Booking Confirmed!",
+                  "Congratulations!",
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         fontWeight: FontWeight.bold,
-                        color: AppTheme.textPrimary,
+                        color: AppTheme.primary,
                       ),
                 ).animate().fadeIn().slideY(begin: 0.2, end: 0),
+                const SizedBox(height: 8),
+                Text(
+                  "Booking Confirmed",
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: AppTheme.textPrimary,
+                      ),
+                ).animate().fadeIn(delay: 100.ms),
                 const SizedBox(height: 12),
                 Text(
                   "Your service request has been submitted successfully. We'll contact you shortly.",
