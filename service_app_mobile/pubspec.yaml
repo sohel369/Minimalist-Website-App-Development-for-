@@ -1,0 +1,50 @@
+name: service_app_mobile
+description: innovative service platform mobile application
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Firebase
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.16.0
+  cloud_firestore: ^4.14.0
+  firebase_analytics: ^10.8.0
+  
+  # State Management
+  provider: ^6.1.1
+  
+  # UI & Design
+  google_fonts: ^6.1.0
+  flutter_svg: ^2.0.9
+  flutter_animate: ^4.5.0
+  shimmer: ^3.0.0
+  glassmorphism: ^3.0.0
+  
+  # Routing
+  go_router: ^13.0.1
+  
+  # Utilities
+  intl: ^0.19.0
+  shared_preferences: ^2.2.2
+  url_launcher: ^6.2.2
+  
+  # Form & Input
+  pinput: ^4.0.0 # Excellent for OTP inputs
+  country_code_picker: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
